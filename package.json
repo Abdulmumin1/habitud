@@ -7,7 +7,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"css": "npx tailwindcss -i ./src/app.css -o ./src/tailwind.css --watch"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
@@ -17,8 +18,18 @@
 		"eslint-plugin-svelte": "^2.30.0",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
+		"prisma": "^5.5.2",
 		"svelte": "^4.0.5",
+		"tailwindcss": "^3.3.3",
 		"vite": "^4.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@prisma/client": "^5.5.2",
+		"@teamhanko/hanko-elements": "^0.8.2",
+		"dexie": "^3.2.4",
+		"feather-icons": "^4.29.1",
+		"jose": "^4.15.4",
+		"mongodb": "^6.2.0"
+	}
 }
