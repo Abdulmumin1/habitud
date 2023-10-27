@@ -19,7 +19,7 @@ export const actions = {
 		let duration = body.duration;
 		let arraylist = JSON.stringify(generateArrayList(duration));
 		try {
-			prisma.streaks.create({
+			await prisma.streaks.create({
 				data: {
 					title: name,
 					userID: user_id,
