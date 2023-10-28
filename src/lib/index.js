@@ -35,3 +35,21 @@ export async function getUserID(cookies) {
 	let user_id = await userId(cookies);
 	return user_id;
 }
+
+export function formatDate(dateString) {
+	// Create a Date object from the provided date string
+	const dateObject = new Date(dateString);
+
+	// Define an array of day names
+	const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+	// Get the day of the week, month, and day
+	const dayOfWeek = dayNames[dateObject.getUTCDay()];
+	const month = dateObject.toLocaleString('en-US', { month: 'short' });
+	const day = dateObject.getUTCDate();
+
+	// Create the desired string
+	const result = `${dayOfWeek} ${month} ${day}`;
+
+	return result;
+}

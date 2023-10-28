@@ -13,7 +13,7 @@
 	class:line-through={done}
 >
 	{title}
-	<input type="checkbox" class={`accent-${color}-300`} bind:checked={done} />
+	<input type="checkbox" class={`accent-${color}-300`} bind:checked={done} disabled={done} />
 </label>
 
 <style>

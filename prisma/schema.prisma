@@ -13,10 +13,12 @@ datasource db {
 
 model Streaks {
   id Int @id @default(autoincrement())
-  title String
+  title String @db.VarChar(200)
   duration Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   streakArray Json
-  userId Int 
+  userId String
+  reward String @db.VarChar(355)
+  color String @db.VarChar(100)
 }

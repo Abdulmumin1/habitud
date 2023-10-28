@@ -1,6 +1,5 @@
 <script>
-	import feather from 'feather-icons';
-	import { onMount } from 'svelte';
+	import Icon from '@iconify/svelte';
 
 	import { page } from '$app/stores';
 </script>
@@ -10,11 +9,11 @@
 		class=" bg-orange-100 m-4 rounded-xl flex gap-6 text-lg p-2 px-3 items-center justify-between md:items-start overflow-hidden"
 	>
 		<li>
-			<a href="/streaks" class="flex flex-col items-center gap-2 justify-center">
+			<a href="/streaks" class="flex flex-col items-center justify-center">
 				<span>
-					<i data-feather="home" id="my-circle" class="foo bar" stroke-width="2" />
+					<Icon icon="icon-park-outline:dashboard" />
 				</span>
-				<span class="text-sm" class:text-orange-500={$page.url.pathname == '/streaks'}
+				<span class="text-[9px]" class:text-orange-500={$page.url.pathname == '/streaks'}
 					>Dashboard</span
 				></a
 			>
@@ -22,18 +21,20 @@
 		<li>
 			<a href="/achievements" class="flex flex-col items-center justify-center">
 				<span>
-					<i data-feather="award" id="my-circle" class="foo bar" stroke-width="2" />
-				</span><span class="text-sm" class:text-orange-500={$page.url.pathname == '/achievements'}
-					>Archievenments</span
+					<Icon icon="solar:cup-star-bold" />
+				</span><span
+					class="text-[9px]"
+					class:text-orange-500={$page.url.pathname == '/achievements'}>Archievenments</span
 				></a
 			>
 		</li>
 		<li>
-			<a href="" class="flex flex-col items-center gap-2 justify-center">
+			<a href="/reward" class="flex flex-col items-center justify-center">
 				<span>
-					<i data-feather="star" id="my-circle" class="foo bar" stroke-width="2" />
+					<Icon icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media" />
 				</span>
-				<span class="text-sm" class:text-orange-500={$page.url.pathname == '/rewards'}>Rewards</span
+				<span class="text-[9px]" class:text-orange-500={$page.url.pathname == '/rewards'}
+					>Rewards</span
 				></a
 			>
 		</li>

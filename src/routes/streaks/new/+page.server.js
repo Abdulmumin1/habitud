@@ -16,15 +16,19 @@ export const actions = {
 		const user_id = await getUserID(cookies);
 		// console.log(user_id);
 		let name = body.title;
-		let duration = body.duration;
-		let arraylist = JSON.stringify(generateArrayList(duration));
+		let duration = Number(body.duration);
+		let arraylist = generateArrayList(duration);
+		let reward = body.reward;
+		let color = body.color;
 		try {
 			await prisma.streaks.create({
 				data: {
 					title: name,
-					userID: user_id,
+					userId: user_id,
 					duration,
-					streakArray: arraylist
+					streakArray: arraylist,
+					reward,
+					color
 				}
 			});
 			console.log('entry created');

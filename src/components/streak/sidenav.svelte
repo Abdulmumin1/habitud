@@ -1,6 +1,7 @@
 <script>
 	import feather from 'feather-icons';
 	import { onMount } from 'svelte';
+	import Icon from '@iconify/svelte';
 
 	import { page } from '$app/stores';
 </script>
@@ -11,7 +12,7 @@
 	>
 		<li>
 			<h2 class="text-2xl py-8 flex items-center gap-2">
-				<i data-feather="circle" id="my-circle" class="" stroke-width="2" />
+				<Icon icon="material-symbols:track-changes" />
 				<span class="hidden md:inline">Habitud</span>
 			</h2>
 		</li>
@@ -22,7 +23,7 @@
 				class:text-orange-500={$page.url.pathname == '/streaks'}
 			>
 				<span>
-					<i data-feather="home" id="my-circle" class="foo bar" stroke-width="2" />
+					<Icon icon="icon-park-outline:dashboard" />
 				</span>
 				<span class="hidden md:inline">Dashboard</span></a
 			>
@@ -30,11 +31,11 @@
 		<li>
 			<a
 				href="/achievements"
-				class="flex items-center"
+				class="flex items-center gap-2"
 				class:text-orange-500={$page.url.pathname == '/achievements'}
 			>
 				<span>
-					<i data-feather="award" id="my-circle" class="foo bar" stroke-width="2" />
+					<Icon icon="solar:cup-star-bold" />
 				</span><span class="hidden md:inline">Archievenments</span></a
 			>
 		</li>
@@ -45,7 +46,7 @@
 				class:text-orange-500={$page.url.pathname == '/reward'}
 			>
 				<span>
-					<i data-feather="star" id="my-circle" class="foo bar" stroke-width="2" />
+					<Icon icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media" />
 				</span>
 				<span class="hidden md:inline">Rewards</span></a
 			>

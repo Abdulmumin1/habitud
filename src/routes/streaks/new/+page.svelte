@@ -5,13 +5,16 @@
 
 	let customDuration = false;
 
-	import feather from 'feather-icons';
 	import { scale } from 'svelte/transition';
 	import { enhance } from '$app/forms';
+	import ColorSelector from '../../../components/streak/new/colorSelector.svelte';
+	import Icon from '@iconify/svelte';
 
-	onMount(() => {
-		feather.replace();
-	});
+	let submitted = false;
+
+	function submitStatus() {
+		submitted = true;
+	}
 </script>
 
 <Wrapper
@@ -64,10 +67,26 @@
 					/>
 				</label>
 			</div>
-			<button type="submit" class="p-2 bg-orange-200 rounded-lg">Start</button>
+			<div>
+				<ColorSelector />
+			</div>
+
+			<button
+				type="submit"
+				on:click={submitStatus}
+				class="flex items-center justify-center gap-2 p-2 bg-orange-200 rounded-lg"
+			>
+				{#if submitted}
+					<span>
+						<Icon icon="svg-spinners:gooey-balls-1" />
+					</span>
+				{/if}
+
+				<span>Start</span>
+			</button>
 		</form>
-	</div>
-</Wrapper>
+	</div></Wrapper
+>
 
 <style>
 	.scale-bit:active {

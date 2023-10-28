@@ -32,12 +32,10 @@ const authenticatedUser = async (event) => {
 
 export const handle = async ({ event, resolve }) => {
 	const verified = await authenticatedUser(event);
-	// console.log(verified);
 
 	if (event.url.pathname.startsWith('/streaks') && !verified) {
 		throw redirect(303, handleRedirect(event));
 	}
-
 	const response = await resolve(event);
 	return response;
 };

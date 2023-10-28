@@ -2,9 +2,6 @@
 	import '../app.css';
 	import '../tailwind.css';
 
-	import feather from 'feather-icons';
-	import { onMount } from 'svelte';
-
 	// import { Hanko } from '@teamhanko/hanko-elements';
 	// import { env } from '$env/dynamic/public';
 
@@ -18,10 +15,6 @@
 	// 	// setContext('currentUser', { id, email });
 	// 	// console.log(`user-id: ${id}, email: ${email}`);
 	// }
-
-	onMount(async () => {
-		feather.replace();
-	});
 </script>
 
 <slot />

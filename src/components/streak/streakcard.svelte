@@ -1,33 +1,76 @@
 <script>
 	import { projects } from '$lib/stores/task.js';
-	import { afterUpdate, onDestroy, onMount } from 'svelte';
+	import { afterUpdate, onDestroy, onMount, setContext } from 'svelte';
 	import Cardmenu from './cardmenu.svelte';
 	import IndependentCard from './independentCard.svelte';
 	import FlipCard from '../landing/FlipCard.svelte';
 
-	export let details = { titie: 'New Task', duration: 30, color: 'orange' };
+	import { formatDate } from '$lib/index.js';
+	import { enhance } from '$app/forms';
+	import Icon from '@iconify/svelte';
 
-	let title = details.titie;
+	export let details = { title: 'New Task', duration: 30, color: 'orange' };
+
+	let title = details.title;
 	let duration = details.duration;
 	let color = details.color;
 
-	function generateRandomArray(length) {
-		const array = [];
-		for (let i = 0; i < length; i++) {
-			array.push(Math.round(Math.random()));
-		}
-		return array;
-	}
+	// function generateRandomArray(length) {
+	// 	const array = [];
+	// 	for (let i = 0; i < length; i++) {
+	// 		array.push(Math.round(Math.random()));
+	// 	}
+	// 	return array;
+	// }
 
-	$: card_number = generateRandomArray(duration).sort().reverse();
-
-	projects.update((cur) => {
-		return [...cur, { title, color, card_number, date_created: new Date(), duration }];
-	});
+	$: card_number = details.streakArray;
 
 	onDestroy(() => {
 		projects.set([]);
 	});
+
+	function getDaysDiff() {
+		// Create a Date object for the provided date string
+		const providedDate = new Date(details.createdAt);
+
+		// Get today's date
+		const today = new Date();
+
+		// Calculate the time difference in milliseconds
+		const timeDifference = Math.abs(providedDate - today);
+
+		// Convert the time difference into days
+		const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+		return daysDifference;
+	}
+
+	function updateCard() {
+		const index = $projects.indexOf(thisData);
+
+		let newData = { ...details, completed: true };
+
+		projects.update((cur) => {
+			cur[index] = newData;
+			return cur;
+		});
+
+		card_number = details.streakArray;
+		card_number[getDaysDiff()] = 1;
+	}
+
+	let thisData = { ...details, completed: details.streakArray[getDaysDiff()] };
+	projects.update((cur) => {
+		let set = new Set();
+		cur.forEach((value) => {
+			set.add(value);
+			// console.log('value', value);
+		});
+		set.add(thisData);
+
+		return [...set];
+	});
+	// forma;
 </script>
 
 <!-- <FlipCard> -->
@@ -39,9 +82,9 @@
 	>
 		<div>
 			<p class="transition-all duration-300">{title}</p>
-			<div class="flex">
-				<span class="text-[9px] text-gray-400">Started 2,Aug .</span>
-				<span class="text-[9px]">{`1/${details.duration}`}</span>
+			<div class="flex gap-2">
+				<span class="text-[9px] text-gray-400">Started {formatDate(details.createdAt)}</span>
+				<span class="text-[9px]">{`${getDaysDiff() + 1}/${details.duration}`}</span>
 			</div>
 		</div>
 
@@ -55,12 +98,18 @@
 		</div>
 	</div>
 	<div class="w-full">
-		<label
-			class="w-full bg-white flex justify-between p-4 rounded-md scale-bit transition-all duration-300"
-		>
-			Mark today
-			<input type="checkbox" name="" id="" class={`accent-${color}-300`} />
-		</label>
+		<form method="post" action="?/updateStreak" use:enhance>
+			<input name="details" value={JSON.stringify(details)} class="hidden" />
+
+			<button
+				class="w-full bg-white flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
+				on:click={updateCard}
+			>
+				<Icon icon="material-symbols:done-all-rounded" />
+				Mark today
+				<!-- <input type="submit"  " class={`accent-${color}-300`} /> -->
+			</button>
+		</form>
 	</div>
 </div>
 
