@@ -37,16 +37,18 @@
 	// console.log(details.title);
 </script>
 
-<div class="w-full gap-1 p-2 bg-{color}-100 rounded-lg flex justify-center flex-col">
-	<div class="flex">
-		<span class="mr-2">
+<div class="w-full gap-1 p-4 bg-{color}-100 rounded-lg flex justify-center flex-col">
+	<div class="flex items-center gap-2">
+		<span class="mr-2 flex items-center justify-center">
 			<Icon
-				class="text-3xl"
+				class="text-3xl "
 				icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media"
 			/>
 		</span>
-		<h3 class="text-lg leading-none font-semibold">{description}</h3>
+		<div class="block">
+			<h3 class="text-lg leading-none">{description}</h3>
+			<p class=" text-gray-600">{title}</p>
+		</div>
 	</div>
-	<p class=" text-gray-600">{title}</p>
 	<RewardProgress {progress} {maxProgress} {color} />
 </div>

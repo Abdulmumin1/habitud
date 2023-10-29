@@ -43,6 +43,8 @@
 						name="duration"
 						class="p-2 rounded-lg bg-orange-100"
 						id=""
+						min="7"
+						max="62"
 						required
 					/>
 				</label>

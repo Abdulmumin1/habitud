@@ -2,10 +2,11 @@
 	import { getContext } from 'svelte';
 
 	function game(element) {
-		if (element.innerText == '1') {
-			element.classList.toggle(bgColor);
+		if (details.state) {
+			// element.classList.remove('bg-white');
+			element.classList.add(bgColor);
 		} else {
-			element.classList.toggle('bg-white');
+			element.classList.add('bg-white');
 		}
 	}
 	function toggleDone(event) {
@@ -22,8 +23,8 @@
 </script>
 
 <button
-	use:game
 	type="submit"
+	use:game
 	class="w-full max-w-4 h-full rounded-md transition-all active:scale-90 duration-300"
 	style="aspect-ratio: 1/1;"><span class="opacity-0">{details.state}</span></button
 >

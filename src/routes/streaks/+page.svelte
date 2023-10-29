@@ -8,12 +8,10 @@
 
 	import { projects } from '$lib/stores/task.js';
 
-	// projects.set([]);
+	projects.set([]);
 	export let data;
 
-	$: streaks = [...data.streaks];
-
-	$: console.log(streaks);
+	let streaks = [...data.streaks];
 </script>
 
 <Wrapper>
@@ -22,8 +20,8 @@
 			<p class=" text-5xl">Today</p>
 
 			<div class="flex gap-2 flex-col transition-all duration-300">
-				{#each $projects as project}
-					<Tasktoday title={project.title} color={project.color} done={project.completed} />
+				{#each $projects as project (project.id)}
+					<Tasktoday details={project} done={project.completed} />
 				{/each}
 			</div>
 			<a

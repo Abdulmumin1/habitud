@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { onMount, onDestroy } from 'svelte';
 
 	let showNav = false;
@@ -36,16 +36,15 @@
 		// 	window.removeEventListener('scroll', handleScroll);
 		// });
 	});
-</script>
+</script> -->
 
-<div bind:this={element} class="fixed bottom-0 w-full bottom-nav" class:visible={showNav}>
+<div class="fixed bottom-0 w-full bottom-nav">
 	<slot />
 </div>
 
 <style>
 	.bottom-nav {
 		transition: opacity 0.3s;
-		opacity: 0;
 	}
 
 	.visible {

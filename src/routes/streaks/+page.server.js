@@ -29,8 +29,13 @@ function getDaysDiff(date) {
 export const actions = {
 	updateStreak: async ({ request }) => {
 		let body = Object.fromEntries(await request.formData());
-		body = JSON.parse(body.details);
-		console.log(body);
+		try {
+			body = JSON.parse(body.details);
+		} catch (err) {
+			console.error(err);
+			return;
+		}
+		// console.log(body);
 		// By unique identifier
 		//
 		// });

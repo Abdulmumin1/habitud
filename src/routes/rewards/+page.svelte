@@ -9,7 +9,7 @@
 </script>
 
 <Wrapper>
-	<div class="flex flex-wrap gap-2 p-2 w-full">
+	<div class="flex flex-wrap gap-2 p-4 w-full">
 		{#each streaks as streak (streak.id)}
 			<RewardCard details={streak} />
 		{/each}
