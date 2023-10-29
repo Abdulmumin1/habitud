@@ -13,11 +13,18 @@
 <Wrapper>
 	<div class="p-4 md:p-12 flex items-center justify-center w-full">
 		<div class="w-full gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+			<Achievementcard
+				details={{
+					title: 'First Achievement',
+					description: 'You unlocked your first achievement!',
+					icon: 'mdi:trophy',
+					color: 'orange'
+				}}
+			/>
+			<!-- <Achievementcard />
 			<Achievementcard />
 			<Achievementcard />
-			<Achievementcard />
-			<Achievementcard />
-			<Achievementcard />
+			<Achievementcard /> -->
 		</div>
 	</div>
 </Wrapper>

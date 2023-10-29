@@ -1,5 +1,30 @@
 import { prisma } from '$db/prisma';
 
+function getDaysDiff(date) {
+	// Create Date objects for the provided date string and today
+	const providedDate = new Date(date);
+	const today = new Date();
+	// today.setDate(today.getDate() - 1); // Subtract 1 day from today
+
+	// Extract year, month, and day components from both dates
+	const providedYear = providedDate.getFullYear();
+	const providedMonth = providedDate.getMonth();
+	const providedDay = providedDate.getDate();
+
+	const todayYear = today.getFullYear();
+	const todayMonth = today.getMonth();
+	const todayDay = today.getDate();
+
+	// Calculate the difference in days
+	const daysDifference = Math.floor(
+		(Date.UTC(todayYear, todayMonth, todayDay) -
+			Date.UTC(providedYear, providedMonth, providedDay)) /
+			(1000 * 60 * 60 * 24)
+	);
+
+	return daysDifference;
+}
+
 /** @type {import('./$types').Actions} */
 export const actions = {
 	updateStreak: async ({ request }) => {
@@ -10,28 +35,10 @@ export const actions = {
 		//
 		// });
 
-		let streakArray;
-		try {
-			streakArray = JSON.parse(body.streakArray);
-		} catch (err) {
-			streakArray = body.streakArray;
-			console.error(err);
-		}
+		let streakArray = body.streakArray;
 
-		// Create a Date object for the provided date string
-		const providedDate = new Date(body.createdAt);
-
-		// Get today's date
-		const today = new Date();
-
-		// Calculate the time difference in milliseconds
-		const timeDifference = Math.abs(providedDate - today);
-
-		// Convert the time difference into days
-		const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
-		console.log(`Days difference: ${daysDifference}`);
-
+		let daysDifference = getDaysDiff(body.createdAt);
+		// console.log(streakArray);
 		if (streakArray[daysDifference] != 1) {
 			streakArray[daysDifference] = 1;
 
@@ -45,6 +52,7 @@ export const actions = {
 					streakArray
 				}
 			});
+			console.log(updateStreak);
 		}
 	}
 };

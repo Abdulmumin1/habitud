@@ -13,7 +13,10 @@
 		<li>
 			<h2 class="text-2xl py-8 flex items-center gap-2">
 				<Icon icon="material-symbols:track-changes" />
-				<span class="hidden md:inline">Habitud</span>
+				<span class="hidden md:inline"
+					>Habitud
+					<span class="bg-orange-300 rounded-lg p-1 rotate-12 text-[9px] h-fit">beta</span>
+				</span>
 			</h2>
 		</li>
 		<li>
@@ -41,9 +44,9 @@
 		</li>
 		<li>
 			<a
-				href=""
+				href="rewards"
 				class="flex items-center gap-2"
-				class:text-orange-500={$page.url.pathname == '/reward'}
+				class:text-orange-500={$page.url.pathname == '/rewards'}
 			>
 				<span>
 					<Icon icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media" />

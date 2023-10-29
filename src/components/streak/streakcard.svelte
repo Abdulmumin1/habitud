@@ -10,7 +10,7 @@
 	import Icon from '@iconify/svelte';
 
 	export let details = { title: 'New Task', duration: 30, color: 'orange' };
-
+	$: details = details;
 	let title = details.title;
 	let duration = details.duration;
 	let color = details.color;
@@ -23,24 +23,33 @@
 	// 	return array;
 	// }
 
-	$: card_number = details.streakArray;
+	let card_number = details.streakArray;
 
 	onDestroy(() => {
 		projects.set([]);
 	});
 
 	function getDaysDiff() {
-		// Create a Date object for the provided date string
+		// Create Date objects for the provided date string and today
 		const providedDate = new Date(details.createdAt);
-
-		// Get today's date
 		const today = new Date();
+		// today.setDate(today.getDate() - 1); // Subtract 1 day from today
 
-		// Calculate the time difference in milliseconds
-		const timeDifference = Math.abs(providedDate - today);
+		// Extract year, month, and day components from both dates
+		const providedYear = providedDate.getFullYear();
+		const providedMonth = providedDate.getMonth();
+		const providedDay = providedDate.getDate();
 
-		// Convert the time difference into days
-		const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+		const todayYear = today.getFullYear();
+		const todayMonth = today.getMonth();
+		const todayDay = today.getDate();
+
+		// Calculate the difference in days
+		const daysDifference = Math.floor(
+			(Date.UTC(todayYear, todayMonth, todayDay) -
+				Date.UTC(providedYear, providedMonth, providedDay)) /
+				(1000 * 60 * 60 * 24)
+		);
 
 		return daysDifference;
 	}
@@ -55,8 +64,9 @@
 			return cur;
 		});
 
-		card_number = details.streakArray;
-		card_number[getDaysDiff()] = 1;
+		let new_cards_number = details.streakArray;
+		new_cards_number[getDaysDiff()] = 1;
+		card_number = new_cards_number;
 	}
 
 	let thisData = { ...details, completed: details.streakArray[getDaysDiff()] };
@@ -97,20 +107,31 @@
 			{/each}
 		</div>
 	</div>
-	<div class="w-full">
-		<form method="post" action="?/updateStreak" use:enhance>
-			<input name="details" value={JSON.stringify(details)} class="hidden" />
 
-			<button
-				class="w-full bg-white flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
-				on:click={updateCard}
-			>
-				<Icon icon="material-symbols:done-all-rounded" />
-				Mark today
-				<!-- <input type="submit"  " class={`accent-${color}-300`} /> -->
-			</button>
-		</form>
-	</div>
+	{#if getDaysDiff() + 1 == duration}
+		<div
+			class="w-full bg-{color}-300 flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
+		>
+			<Icon icon="material-symbols:done-all-rounded" />
+
+			Completed
+		</div>
+	{:else}
+		<div class="w-full">
+			<form method="post" action="?/updateStreak" use:enhance>
+				<input name="details" value={JSON.stringify(details)} class="hidden" />
+
+				<button
+					class="w-full bg-white flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
+					on:click={updateCard}
+				>
+					<Icon icon="material-symbols:done-all-rounded" />
+					Mark today
+					<!-- <input type="submit"  " class={`accent-${color}-300`} /> -->
+				</button>
+			</form>
+		</div>
+	{/if}
 </div>
 
 <!-- </FlipCard> -->

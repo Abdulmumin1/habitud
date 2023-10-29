@@ -10,7 +10,7 @@
 		hanko.user.logout().catch((error) => {
 			// handle error
 		});
-		goto('/login');
+		goto('/auth');
 	};
 </script>
 

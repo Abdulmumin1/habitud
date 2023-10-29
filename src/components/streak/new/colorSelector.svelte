@@ -35,10 +35,16 @@
 	// const colorClasses = colors.flatMap((color) => shades.map((shade) => `bg-${color}-${shade}`));
 </script>
 
-<div class="bg-orange-100 p-2 rounded-xl flex flex-col gap-2">
-	<p class="py-4 px-2 bg-orange-200 rounded-lg text-base md:text-xl">Select Color</p>
+<div
+	class=" p-2 rounded-xl flex flex-col gap-2 bg-{colorSelected}-100 transition-colors duration-300 first-letter:"
+>
+	<p
+		class="py-3 px-2 rounded-lg text-base md:text-xl bg-{colorSelected}-200 transition-colors duration-300"
+	>
+		Select Color
+	</p>
 	<input type="text" name="color" id="" class="hidden" bind:value={colorSelected} />
-	<div class="grid grid-cols-7 gap-2">
+	<div class="grid grid-cols-7 gap-2 bg-white p-1 rounded-xl">
 		{#each colors as color}
 			<button
 				type="button"
