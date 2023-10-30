@@ -6,17 +6,6 @@ import { handleRedirect } from '$lib';
 
 const hankoApiUrl = env.PUBLIC_HANKO_API_URL;
 
-// import { start_mongo } from '$db/mongo';
-// // console.log(hankoApiUrl);
-
-// start_mongo()
-// 	.then(() => {
-// 		console.log('mongodb started!');
-// 	})
-// 	.catch((e) => {
-// 		console.error(e);
-// 	});
-
 const authenticatedUser = async (event) => {
 	const { cookies } = event;
 	const hanko = cookies.get('hanko');

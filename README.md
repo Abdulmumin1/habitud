@@ -1,38 +1,56 @@
-# create-svelte
+**Habitud** is a habit tracking app that helps you master your life. It is a simple and effective way to track your progress, set reminders, and stay motivated to achieve your goals.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+**Features:**
 
-## Creating a project
+- Track any habit you want, big or small.
+- Set reminders for specific times and days of the week (comming soon).
+- See your progress over time and stay motivated.
+- Flexible and customizable to fit your needs.
+- Features to help you achieve any goal, big or small.
+- Supports passkeys
 
-If you're seeing this, you've probably already done this step. Congrats!
+**Getting Started:**
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. Clone this repository:
 
-# create a new project in my-app
-npm create svelte@latest my-app
+```
+git clone https://github.com/your-username/habitud.git
 ```
 
-## Developing
+2. Change into the `habitud` directory:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```
+cd habitud
 ```
 
-## Building
+3. Install the dependencies:
 
-To create a production version of your app:
-
-```bash
-npm run build
+```
+pnpm install
 ```
 
-You can preview the production build with `npm run preview`.
+4. Start the development server:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```
+pnpm run dev
+```
+
+5. Open your web browser and go to http://localhost:5178
+
+**Usage:**
+
+Habitud is a simple and straightforward app to use. To create a new habit, simply click the "Add New Habit" button and enter the name of your habit. You can also set a goal for your habit, such as completing it a certain number of times per week or month.
+
+Once you have created your habit, you can start tracking your progress by clicking the "Track new" button. Habitud will keep track of how often you complete your habit and show you your progress over time.
+
+Habitud also includes a number of features to help you stay motivated, such as streak rewards and social sharing. You can earn badges for completing your habit streaks and share your progress with your friends on social media.
+
+**Passkeys:**
+
+Habitud supports passkeys, which is a new way to sign in to websites and apps without passwords. Passkeys are more secure and easier to use than passwords, and they work on all major browsers and platforms.
+
+To use passkeys with Habitud, simply create a passkey in your browser or device settings and then select "Passkey" when signing in to Habitud.
+
+**Contributing:**
+
+If you would like to contribute to Habitud, please feel free to fork this repository and submit a pull request. All contributions are welcome!
