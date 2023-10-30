@@ -10,9 +10,7 @@ export default defineConfig({
 			srcDir: './src',
 			filename: 'sw.js',
 			base: '/',
-			injectManifest: {
-				injectionPoint: undefined
-			},
+			mode: process.env.NODE_ENV,
 			manifest: {
 				name: 'Habitud',
 				short_name: 'Habitud',
@@ -32,6 +30,12 @@ export default defineConfig({
 						type: 'image/png'
 					}
 				]
+			},
+			injectManifest: {
+				globPatterns: ['client/**/*.{js,svelte,css,ico,png,svg,webp,woff,woff2}'],
+				maximumFileSizeToCacheInBytes: 10 * 1000 * 1000,
+				// Tried with & without
+				injectionPoint: undefined
 			}
 		})
 	]

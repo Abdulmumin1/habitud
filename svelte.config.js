@@ -9,7 +9,7 @@ const config = {
 		adapter: adapter(),
 		alias: { $components: 'src/components', $db: 'src/db' },
 		files: {
-			serviceWorker: 'src/sw.js' // or `src/my-sw.ts`
+			serviceWorker: './src/sw.js' // or `src/my-sw.ts`
 		},
 		serviceWorker: {
 			register: false
