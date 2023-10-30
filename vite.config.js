@@ -7,7 +7,7 @@ export default defineConfig({
 		sveltekit(),
 		SvelteKitPWA({
 			strategies: 'injectManifest',
-			srcDir: './src',
+			srcDir: 'src',
 			filename: 'sw.js',
 			manifest: {
 				name: 'Habitud',
