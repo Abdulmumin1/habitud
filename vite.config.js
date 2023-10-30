@@ -9,8 +9,6 @@ export default defineConfig({
 			strategies: 'injectManifest',
 			srcDir: './src',
 			filename: 'sw.js',
-			base: '/',
-			mode: process.env.NODE_ENV,
 			manifest: {
 				name: 'Habitud',
 				short_name: 'Habitud',
