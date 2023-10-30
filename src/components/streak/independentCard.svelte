@@ -19,7 +19,7 @@
 	let bgColor = `bg-${color}-300`;
 
 	// $: statex = getContext('state');
-	// console.log(statex);
+	// console.log('some thing', details.state);
 </script>
 
 <button

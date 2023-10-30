@@ -8,12 +8,16 @@
 	import { formatDate } from '$lib/index.js';
 	import { enhance } from '$app/forms';
 	import Icon from '@iconify/svelte';
+	import { fly } from 'svelte/transition';
 
 	export let details = { title: 'New Task', duration: 30, color: 'orange' };
+
 	$: details = details;
 	let title = details.title;
 	let duration = details.duration;
 	let color = details.color;
+	let refElement;
+	let thisData;
 
 	// function generateRandomArray(length) {
 	// 	const array = [];
@@ -23,7 +27,7 @@
 	// 	return array;
 	// }
 
-	let card_number = details.streakArray;
+	$: card_number = details.streakArray;
 
 	onDestroy(() => {
 		projects.set([]);
@@ -57,7 +61,7 @@
 	function updateCard() {
 		const index = $projects.indexOf(thisData);
 
-		let newData = { ...details, completed: true };
+		let newData = { ...details, completed: true, refElement };
 
 		projects.update((cur) => {
 			cur[index] = newData;
@@ -65,20 +69,34 @@
 		});
 
 		let new_cards_number = details.streakArray;
-		new_cards_number[getDaysDiff()] = 1;
-		card_number = new_cards_number;
+		console.log(new_cards_number);
+		// new_cards_number[getDaysDiff()] = 1;
+		card_number = [];
+		for (let index = 0; index < new_cards_number.length; index++) {
+			if (index == getDaysDiff()) {
+				card_number[index] = 1;
+			} else {
+				card_number[index] = new_cards_number[index];
+			}
+		}
+
+		console.log(card_number);
 	}
 
-	let thisData = { ...details, completed: details.streakArray[getDaysDiff()] };
-	projects.update((cur) => {
-		let set = new Set();
-		cur.forEach((value) => {
-			set.add(value);
-			// console.log('value', value);
-		});
-		set.add(thisData);
+	onMount(() => {
+		projects.update((cur) => {
+			thisData = { ...details, refElement, completed: details.streakArray[getDaysDiff()] };
+			let set = new Set();
+			cur.forEach((value) => {
+				set.add(value);
+				// console.log('value', value);
+			});
+			set.add(thisData);
 
-		return [...set];
+			return [...set];
+		});
+
+		// console.log(refElement);
 	});
 	// forma;
 </script>
@@ -102,7 +120,7 @@
 	</div>
 	<div class=" h-full">
 		<div class="grid grid-cols-7 gap-2">
-			{#each card_number as state}
+			{#each card_number as state (crypto.randomUUID())}
 				<IndependentCard details={{ state, color: details.color }} />
 			{/each}
 		</div>
@@ -110,20 +128,31 @@
 
 	{#if getDaysDiff() + 1 == duration}
 		<div
+			in:fly
 			class="w-full bg-{color}-300 flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
 		>
 			<Icon icon="material-symbols:done-all-rounded" />
 
-			Completed
+			Congratulations, Completed
+		</div>
+	{:else if card_number[getDaysDiff()] == 1}
+		<div
+			in:fly
+			class="w-full bg-{color}-300 flex items-center gap-4 p-2 rounded-md scale-bit transition-all duration-300"
+		>
+			<Icon icon="material-symbols:done-all-rounded" />
+
+			Today Completed
 		</div>
 	{:else}
-		<div class="w-full">
+		<div class="w-full" in:fly>
 			<form method="post" action="?/updateStreak" use:enhance>
 				<input name="details" value={JSON.stringify(details)} class="hidden" />
 
 				<button
 					class="w-full bg-white flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
 					on:click={updateCard}
+					bind:this={refElement}
 				>
 					<Icon icon="material-symbols:done-all-rounded" />
 					Mark today

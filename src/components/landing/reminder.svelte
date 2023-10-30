@@ -27,7 +27,8 @@
 			title="Write a Journal"
 		/>
 	</div>
-	<div class=" text-2xl font-semibold italic text-center text-slate-900">
-		Reminders to help you stay on track.
+	<div class="  text-slate-900">
+		<h4 class="text-2xl font-semibold">Reminders to help you stay on track.</h4>
+		<p>Stay on Course with Helpful Reminders</p>
 	</div>
 </div>

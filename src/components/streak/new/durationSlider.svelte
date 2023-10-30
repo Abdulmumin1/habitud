@@ -1,7 +1,7 @@
 <script>
 	import { scale } from 'svelte/transition';
 
-	let progress = 0;
+	let progress = 7;
 
 	const milestones = [7, 14, 21, 30];
 
@@ -18,19 +18,29 @@
 
 <div in:scale class=" h-full py-4 flex flex-col gap-4 w-full justify-center">
 	<div class=" bg-orange-100 rounded-xl">
-		<input type="number" name="duration" bind:value={progress} class="hidden" required />
+		<input
+			min="7"
+			max="30"
+			type="number"
+			name="duration"
+			bind:value={progress}
+			class="hidden"
+			required
+		/>
 		<div class="flex flex-col relative w-full h-4 rounded-xl move">
 			{#each milestones as milestone (milestone)}
 				<button
 					type="button"
-					class="text-[10px] absolute translate-y-1/3 z-10 w-12 h-12 bottom-0 bg-white border-2 border-orange-300 rounded-full cursor-pointer"
+					class="text-[10px] absolute translate-y-1/3 z-10 w-12 h-12 bottom-0 border-2 border-orange-300 rounded-full cursor-pointer transition-colors duration-300"
 					style="left: {(milestone / 30) * 100}%;"
-					on:click={() => updateProgress(milestone)}>{weeks[milestone]}</button
+					class:bg-orange-300={progress >= milestone}
+					class:bg-white={!(progress >= milestone)}
+					on:click={() => updateProgress(Number(milestone))}>{weeks[milestone]}</button
 				>
 			{/each}
 
 			<div
-				class="absolute move-a h-4 bg-orange-200 transition-all duration-300 rounded-lg"
+				class="absolute move-a h-4 bg-orange-300 transition-all duration-300 rounded-lg"
 				style="width: {(progress / 30) * 100}%;"
 			/>
 		</div>

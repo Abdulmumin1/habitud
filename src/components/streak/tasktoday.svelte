@@ -1,30 +1,31 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { enhance } from '$app/forms';
 
 	export let details;
 	let title = details.title;
 	let color = details.color;
+	let ref = details?.refElement;
+	// console.log(ref);
 
 	export let done = false;
 </script>
 
-<form method="post" action="?/updateStreak" use:enhance>
+<div>
 	<input name="details" value={JSON.stringify(details)} class="hidden" />
 
 	<button
 		transition:fade
-		type="submit"
-		class={`w-full flex justify-between p-4 rounded-lg bg-${color}-100 scale-bit transition-all duration-300 `}
+		class={`w-full flex text-left justify-between p-4 rounded-lg bg-${color}-100 scale-bit transition-all duration-300 `}
 		class:line-through={done}
 		on:click={() => {
 			done = true;
+			ref.click();
 		}}
 	>
 		{title}
 		<!-- <input type="checkbox" class={`accent-${color}-300`} bind:checked={done} disabled={done} /> -->
 	</button>
-</form>
+</div>
 
 <style>
 	.scale-bit:active {

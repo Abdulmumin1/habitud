@@ -35,6 +35,8 @@
 			<div class="w-full h-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-4">
 				{#each streaks as streak (streak.id)}
 					<Streakcard details={streak} />
+				{:else}
+					<p class="col-span-full text-center text-gray-600">Nothing to show</p>
 				{/each}
 				<!-- <Streakcard details={{ titie: 'Write a Journal', duration: 20, color: 'orange' }} />
 				<Streakcard

@@ -3,11 +3,12 @@
 </script>
 
 <div
-	class="group p-4 md:p-6 flex min-h-screen flex-col md:flex-row items-center justify-center gap-2"
+	class="group p-4 py-12 md:p-6 flex min-h-screen flex-col md:flex-row items-center justify-center gap-12 md:gap-2"
 >
 	<div class="flex flex-col">
-		<p class="text-4xl max-w-2xl group-[game]:">See your progress over time and stay motivated.</p>
-		<p>People who fail to learn from history, are doomed to repeat it!</p>
+		<p class="text-4xl max-w-2xl group-[game]:">Track Your Progress and Stay Motivated</p>
+		<p>See your progress over time and stay motivated</p>
+		<a href="/streaks" class="py-2 bg-orange-200 rounded-lg px-4 w-fit">Get Started</a>
 	</div>
 	<div class="h-[400px] w-full max-w-[400px] relative">
 		<Streakcard

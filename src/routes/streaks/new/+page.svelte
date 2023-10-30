@@ -7,13 +7,31 @@
 
 	import { scale } from 'svelte/transition';
 	import { enhance } from '$app/forms';
-	import ColorSelector from '../../../components/streak/new/colorSelector.svelte';
+	import ColorSelector from '$components/streak/new/colorSelector.svelte';
 	import Icon from '@iconify/svelte';
+	import RewardInput from './rewardInput.svelte';
+
+	import { toast } from '@zerodevx/svelte-toast';
 
 	let submitted = false;
 
-	function submitStatus() {
+	const submitStatus = () => {
 		submitted = true;
+		return async ({ update }) => {
+			submitted = false;
+			await update();
+		};
+	};
+
+	export let form;
+	$: if (form?.errors) {
+		let interval = 100;
+		form.errors.forEach((err) => {
+			setTimeout(() => {
+				toast.push(err.message);
+				interval += 300;
+			}, interval);
+		});
 	}
 </script>
 
@@ -23,7 +41,7 @@
 			<h1 class="text-4xl">Track New</h1>
 		</div>
 
-		<form use:enhance action="?/new" method="post" class="flex flex-col gap-4">
+		<form use:enhance={submitStatus} action="?/new" method="post" class="flex flex-col gap-4">
 			<label class="flex flex-col gap-2">
 				Title
 				<input
@@ -59,15 +77,7 @@
 			</div>
 
 			<div>
-				<label class="flex gap-2 flex-col">
-					Reward I will give myself:
-					<input
-						type="text"
-						name="reward"
-						class="bg-orange-100 p-2 rounded-lg"
-						placeholder="Example: I will treat myself to a nice meal"
-					/>
-				</label>
+				<RewardInput />
 			</div>
 			<div>
 				<ColorSelector />
@@ -75,7 +85,6 @@
 
 			<button
 				type="submit"
-				on:click={submitStatus}
 				class="flex items-center justify-center gap-2 p-2 bg-orange-200 rounded-lg"
 			>
 				{#if submitted}
@@ -87,6 +96,13 @@
 				<span>Start</span>
 			</button>
 		</form>
+		<!-- {#if form?.error}
+			<ul class="notice-error">
+				{#each form.errors as error}
+					<li>{error.message}</li>
+				{/each}
+			</ul>
+		{/if} -->
 	</div></Wrapper
 >
 
@@ -110,8 +126,8 @@
 		transform-style: preserve-3d;
 		transition: transform 0.5s;
 	}
-	::placeholder {
+	/* ::placeholder {
 		color: rgb(251 146 60);
-		opacity: 0.7; /* Firefox */
-	}
+		opacity: 0.7; 
+	} */
 </style>
