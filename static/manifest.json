@@ -6,7 +6,7 @@
 	"background_color": "#fff",
 	"display": "standalone",
 	"orientation": "any",
-	"start_url": "/",
+	"start_url": "/streaks",
 	"scope": "/",
 	"lang": "en",
 	"dir": "ltr",

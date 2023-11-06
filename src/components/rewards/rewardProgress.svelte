@@ -7,7 +7,7 @@
 </script>
 
 <div class="w-full bg-{color}-200 p-1 rounded-[12px]" style="border-radius: 12px;">
-	{#if progress == maxProgress}
+	{#if progress >= maxProgress}
 		<div class="inline items-center justify-center">
 			<!-- <span>
                 <Icon icon="material-symbols:done-all-rounded" />

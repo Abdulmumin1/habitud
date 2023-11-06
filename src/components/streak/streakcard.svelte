@@ -98,7 +98,8 @@
 
 		// console.log(refElement);
 	});
-	// forma;
+
+	let done = getDaysDiff() + 1 > duration;
 </script>
 
 <!-- <FlipCard> -->
@@ -112,7 +113,11 @@
 			<p class="transition-all duration-300">{title}</p>
 			<div class="flex gap-2">
 				<span class="text-[9px] text-gray-400">Started {formatDate(details.createdAt)}</span>
-				<span class="text-[9px]">{`${getDaysDiff() + 1}/${details.duration}`}</span>
+				{#if !done}
+					<span class="text-[9px]">{`${getDaysDiff() + 1}/${details.duration}`}</span>
+				{:else}
+					<span class="text-[9px]">Completed</span>
+				{/if}
 			</div>
 		</div>
 
@@ -126,7 +131,7 @@
 		</div>
 	</div>
 
-	{#if getDaysDiff() + 1 == duration}
+	{#if getDaysDiff() + 1 > duration || (getDaysDiff() + 1 == duration && card_number[card_number.length - 1])}
 		<div
 			in:fly
 			class="w-full bg-{color}-300 flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
@@ -138,7 +143,7 @@
 	{:else if card_number[getDaysDiff()] == 1}
 		<div
 			in:fly
-			class="w-full bg-{color}-300 flex items-center gap-4 p-2 rounded-md scale-bit transition-all duration-300"
+			class="w-full bg-{color}-300 flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
 		>
 			<Icon icon="material-symbols:done-all-rounded" />
 
