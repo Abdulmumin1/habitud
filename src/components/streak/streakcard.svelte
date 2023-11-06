@@ -83,18 +83,24 @@
 		console.log(card_number);
 	}
 
-	onMount(() => {
-		projects.update((cur) => {
-			thisData = { ...details, refElement, completed: details.streakArray[getDaysDiff()] };
-			let set = new Set();
-			cur.forEach((value) => {
-				set.add(value);
-				// console.log('value', value);
-			});
-			set.add(thisData);
+	let completed =
+		getDaysDiff() + 1 > duration ||
+		(getDaysDiff() + 1 == duration && card_number[card_number.length - 1] == 1);
 
-			return [...set];
-		});
+	onMount(() => {
+		if (!completed) {
+			projects.update((cur) => {
+				thisData = { ...details, refElement, completed: details.streakArray[getDaysDiff()] };
+				let set = new Set();
+				cur.forEach((value) => {
+					set.add(value);
+					// console.log('value', value);
+				});
+				set.add(thisData);
+
+				return [...set];
+			});
+		}
 
 		// console.log(refElement);
 	});
@@ -131,7 +137,7 @@
 		</div>
 	</div>
 
-	{#if getDaysDiff() + 1 > duration || (getDaysDiff() + 1 == duration && card_number[card_number.length - 1])}
+	{#if completed}
 		<div
 			in:fly
 			class="w-full bg-{color}-300 flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
