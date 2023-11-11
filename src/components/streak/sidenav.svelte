@@ -54,5 +54,29 @@
 				<span class="hidden md:inline">Rewards</span></a
 			>
 		</li>
+		<li>
+			<a
+				href="/completed"
+				class="flex items-center gap-2"
+				class:text-orange-500={$page.url.pathname == '/completed'}
+			>
+				<span>
+					<Icon icon="solar:battery-full-bold" />
+				</span>
+				<span class="hidden md:inline">Completed</span></a
+			>
+		</li>
+		<li>
+			<a
+				href="/settings"
+				class="flex items-center gap-2"
+				class:text-orange-500={$page.url.pathname == '/settings'}
+			>
+				<span>
+					<Icon icon="material-symbols:settings" />
+				</span>
+				<span class="hidden md:inline">Settings</span></a
+			>
+		</li>
 	</ul>
 </div>

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+	:root {
+		--brand-color: var(--toastBarBackground) !important;
+	}
+}

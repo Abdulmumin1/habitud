@@ -6,6 +6,7 @@
 	let title = details?.title;
 	let description = details?.reward;
 	let color = details?.color;
+	let streakArray = details?.streakArray;
 
 	function getDaysDiff() {
 		// Create Date objects for the provided date string and today
@@ -31,24 +32,52 @@
 
 		return daysDifference;
 	}
+	function hasInterruptedSequence(arr) {
+		let hasInterrupted = false;
 
+		for (let i = 0; i < arr.length; i++) {
+			if (arr[i] === 1) {
+				if (hasInterrupted) {
+					// If a sequence of 1 is interrupted by 0, return true
+					return true;
+				}
+			} else {
+				// If a 0 is encountered, set hasInterrupted to true
+				hasInterrupted = true;
+			}
+		}
+
+		// If the entire array is zeros or ends with uninterrupted 1s, return false
+		return false;
+	}
 	let progress = getDaysDiff() + 1;
 	let maxProgress = details.duration;
-	// console.log(details.title);
+	// console.log(details.title);\
+	let interrupted = hasInterruptedSequence(streakArray);
 </script>
 
 <div class="w-full gap-1 p-4 bg-{color}-100 rounded-lg flex justify-center flex-col">
 	<div class="flex items-center gap-2">
 		<span class="mr-2 flex items-center justify-center">
-			<Icon
-				class="text-3xl "
-				icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media"
-			/>
+			{#if !interrupted}
+				<Icon
+					class="text-3xl "
+					icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media"
+				/>
+			{:else}
+				<div class="text-red-400 text-center">
+					<Icon class="text-3xl " icon="material-symbols:heart-broken" />
+					Broken
+				</div>
+			{/if}
 		</span>
+
 		<div class="block">
 			<h3 class="text-lg leading-none">{description}</h3>
 			<p class=" text-gray-600">{title}</p>
 		</div>
 	</div>
-	<RewardProgress {progress} {maxProgress} {color} />
+	{#if !interrupted}
+		<RewardProgress {progress} {maxProgress} {color} />
+	{/if}
 </div>
