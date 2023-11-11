@@ -35,7 +35,7 @@
 		<div class="w-full flex items-center justify-center">
 			<div class="w-full h-fit customGrid gap-4 p-4 md:p-4">
 				{#each streaks as streak (streak.id)}
-					{#if !getDaysDiff(streak.createdAt) > streak.duration || streak.streakArray[streak.streakArray.length - 1] == 1}
+					{#if !(getDaysDiff(streak.createdAt) > streak.duration || streak.streakArray[streak.streakArray.length - 1] == 1)}
 						<Streakcard details={streak} />
 					{/if}
 				{:else}

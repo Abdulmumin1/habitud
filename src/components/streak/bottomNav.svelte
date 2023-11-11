@@ -30,6 +30,16 @@
 				>
 			</li>
 			<li>
+				<a href="/completed" class="flex flex-col items-center justify-center">
+					<span>
+						<Icon icon="solar:battery-full-bold" />
+					</span>
+					<span class="text-sm" class:text-orange-500={$page.url.pathname == '/completed'}
+						>Completed</span
+					></a
+				>
+			</li>
+			<li>
 				<a href="/rewards" class="flex flex-col items-center justify-center">
 					<span>
 						<Icon
@@ -38,6 +48,17 @@
 					</span>
 					<span class="text-sm" class:text-orange-500={$page.url.pathname == '/rewards'}
 						>Rewards</span
+					></a
+				>
+			</li>
+
+			<li>
+				<a href="/settings" class="flex flex-col items-center justify-center">
+					<span>
+						<Icon icon="material-symbols:settings" />
+					</span>
+					<span class="text-sm" class:text-orange-500={$page.url.pathname == '/settings'}
+						>Settings</span
 					></a
 				>
 			</li>
