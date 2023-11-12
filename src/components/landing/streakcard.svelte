@@ -40,8 +40,8 @@
 				<button
 					use:game
 					class:bg-white={!g}
-					class="w-full rounded-md h-8 hover:scale-105 transition-all active:scale-90 duration-300"
-					><span class="opacity-0">{g}</span></button
+					class="w-full max-w-4 h-full rounded-md transition-all active:scale-90 duration-300"
+					style="aspect-ratio: 1/1;"><span class="opacity-0">{g}</span></button
 				>
 			{/each}
 		</div>
