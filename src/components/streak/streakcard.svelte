@@ -58,6 +58,7 @@
 		return daysDifference;
 	}
 
+	let daysDiff = getDaysDiff();
 	function updateCard() {
 		const index = $projects.indexOf(thisData);
 
@@ -70,27 +71,26 @@
 
 		let new_cards_number = details.streakArray;
 		console.log(new_cards_number);
-		// new_cards_number[getDaysDiff()] = 1;
+		// new_cards_number[daysDiff] = 1;
 		card_number = [];
 		for (let index = 0; index < new_cards_number.length; index++) {
-			if (index == getDaysDiff()) {
+			if (index == daysDiff) {
 				card_number[index] = 1;
 			} else {
 				card_number[index] = new_cards_number[index];
 			}
 		}
-
-		console.log(card_number);
 	}
+	// console.log(card_number);
 
-	let completed =
-		getDaysDiff() + 1 > duration ||
-		(getDaysDiff() + 1 == duration && card_number[card_number.length - 1] == 1);
+	$: completed =
+		daysDiff + 1 > duration ||
+		(daysDiff + 1 == duration && card_number[card_number.length - 1] == 1);
 
 	onMount(() => {
 		if (!completed) {
 			projects.update((cur) => {
-				thisData = { ...details, refElement, completed: details.streakArray[getDaysDiff()] };
+				thisData = { ...details, refElement, completed: details.streakArray[daysDiff] };
 				let set = new Set();
 				cur.forEach((value) => {
 					set.add(value);
@@ -105,7 +105,7 @@
 		// console.log(refElement);
 	});
 
-	let done = getDaysDiff() + 1 > duration;
+	let done = daysDiff + 1 > duration;
 </script>
 
 <!-- <FlipCard> -->
@@ -120,7 +120,7 @@
 			<div class="flex gap-2">
 				<span class="text-[9px] text-gray-400">Started {formatDate(details.createdAt)}</span>
 				{#if !done}
-					<span class="text-[9px]">{`${getDaysDiff() + 1}/${details.duration}`}</span>
+					<span class="text-[9px]">{`${daysDiff + 1}/${details.duration}`}</span>
 				{:else}
 					<span class="text-[9px]">Completed</span>
 				{/if}
@@ -146,7 +146,7 @@
 
 			Congratulations, Completed
 		</div>
-	{:else if card_number[getDaysDiff()] == 1}
+	{:else if card_number[daysDiff] == 1}
 		<div
 			in:fly
 			class="w-full bg-{color}-300 flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"

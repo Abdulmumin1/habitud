@@ -11,56 +11,58 @@
 			class=" bg-orange-100 rounded-lg flex gap-6 text-lg p-4 items-center justify-between md:items-start overflow-hidden"
 		>
 			<li>
-				<a href="/streaks" class="flex flex-col items-center justify-center">
-					<span>
-						<Icon icon="icon-park-outline:dashboard" />
-					</span>
-					<span class="text-sm" class:text-orange-500={$page.url.pathname == '/streaks'}
-						>Dashboard</span
-					></a
-				>
-			</li>
-			<li>
 				<a href="/achievements" class="flex flex-col items-center justify-center">
-					<span>
+					<span class:text-orange-500={$page.url.pathname == '/achievements'}>
 						<Icon icon="solar:cup-star-bold" />
-					</span><span class="text-sm" class:text-orange-500={$page.url.pathname == '/achievements'}
+						<!-- </span><span class="text-sm" class:text-orange-500={$page.url.pathname == '/achievements'}
 						>Archievenments</span
-					></a
+					> -->
+					</span></a
 				>
 			</li>
 			<li>
 				<a href="/completed" class="flex flex-col items-center justify-center">
-					<span>
+					<span class:text-orange-500={$page.url.pathname == '/completed'}>
 						<Icon icon="solar:battery-full-bold" />
 					</span>
-					<span class="text-sm" class:text-orange-500={$page.url.pathname == '/completed'}
+					<!-- <span class="text-sm" class:text-orange-500={$page.url.pathname == '/completed'}
 						>Completed</span
-					></a
-				>
+					> -->
+				</a>
+			</li>
+
+			<li>
+				<a href="/streaks" class="flex flex-col items-center justify-center">
+					<span class="text-2xl" class:text-orange-500={$page.url.pathname == '/streaks'}>
+						<Icon icon="icon-park-outline:dashboard" />
+					</span>
+					<!-- <span class="text-sm" class:text-orange-500={$page.url.pathname == '/streaks'}
+						>Dashboard</span
+					> -->
+				</a>
 			</li>
 			<li>
 				<a href="/rewards" class="flex flex-col items-center justify-center">
-					<span>
+					<span class:text-orange-500={$page.url.pathname == '/rewards'}>
 						<Icon
 							icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media"
 						/>
 					</span>
-					<span class="text-sm" class:text-orange-500={$page.url.pathname == '/rewards'}
+					<!-- <span class="text-sm" class:text-orange-500={$page.url.pathname == '/rewards'}
 						>Rewards</span
-					></a
-				>
+					> -->
+				</a>
 			</li>
 
 			<li>
 				<a href="/settings" class="flex flex-col items-center justify-center">
-					<span>
+					<span class:text-orange-500={$page.url.pathname == '/settings'}>
 						<Icon icon="material-symbols:settings" />
 					</span>
-					<span class="text-sm" class:text-orange-500={$page.url.pathname == '/settings'}
+					<!-- <span class="text-sm" class:text-orange-500={$page.url.pathname == '/settings'}
 						>Settings</span
-					></a
-				>
+					> -->
+				</a>
 			</li>
 		</ul>
 	</div>

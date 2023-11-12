@@ -2,9 +2,11 @@
 	import Wrapper from '$components/streak/wrapper.svelte';
 	import { getDaysDiff } from '$lib/index.js';
 	import StreakCompleted from '../../components/completed/streakCompleted.svelte';
-
+	import { backgroundColors } from '$lib/colors/index.js';
 	export let data;
 	const streaks = [...data.streaks];
+
+	// console.log(backgroundColors.map((color) => color.replace('bg-', 'text-')));
 </script>
 
 <Wrapper>
@@ -26,8 +28,17 @@
 </Wrapper>
 
 <style>
+	:root {
+		--min: 400px;
+	}
 	.customGrid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
+	}
+
+	@media screen and (max-width: 600px) {
+		:root {
+			--min: 300px;
+		}
 	}
 </style>

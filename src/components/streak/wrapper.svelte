@@ -11,7 +11,7 @@
 	<div class="flex md:hidden z-50">
 		<BottomNav />
 	</div>
-	<div in:scale={{ axis: 'x' }} class="mb-20 md:mb-6 w-full">
+	<div in:fly class="mb-20 md:mb-6 w-full">
 		<slot />
 	</div>
 </div>

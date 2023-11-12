@@ -1,4 +1,6 @@
 <script>
+	import Icon from '@iconify/svelte';
+
 	export let color = 'orange';
 
 	export let title;
@@ -33,7 +35,7 @@
 	}
 </script>
 
-<div class={`min-w-[300px] h-fit p-3 rounded-lg flex flex-row gap-2 bg-${color}-100`}>
+<div class={`min-w-[300px] h-fit p-3 rounded-lg flex flex-col md:flex-row  gap-2 bg-${color}-100`}>
 	<div class="flex gap-2 flex-col w-full">
 		<div class={`flex justify-between items-center bg-${color}-50 rounded-lg  p-2 `}>
 			<div>
@@ -57,11 +59,18 @@
 		</div>
 	</div>
 
-	<div class="text-center flex flex-col gap-2">
+	<div class="items-center flex flex-col gap-2">
 		<div
-			class="w-[7rem] h-[7rem] md:w-[10rem] md:h-[10rem] rounded-full border-8 border-{color}-300 relative overflow-hidden flex items-center justify-center"
+			class="w-[7rem] h-[7rem] md:w-[10rem] md:h-[10rem] rounded-full relative overflow-hidden flex items-center justify-center"
 		>
-			<div class="text">{findLongestSequence(streakArray)}</div>
+			<div class="fire text-[6rem] md:text-[10rem] text-{color}-300">
+				<Icon icon="ph:fire" class="z-50" />
+			</div>
+
+			<!-- <div class="streak-circle">
+				<div class="fire" />
+			</div> -->
+			<div class="font-bold">{findLongestSequence(streakArray)}</div>
 		</div>
 		Longest Streak
 	</div>
@@ -74,5 +83,17 @@
 		transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
 			skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
 			scaleY(var(--tw-scale-y));
+	}
+
+	.streak-circle {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		border: 3px solid red;
+		position: relative;
+	}
+
+	.fire {
+		position: absolute;
 	}
 </style>
