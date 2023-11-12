@@ -19,10 +19,21 @@ const authenticatedUser = async (event) => {
 	}
 };
 
+function isPath(event, path) {
+	return event.url.pathname.startsWith(path);
+}
 export const handle = async ({ event, resolve }) => {
 	const verified = await authenticatedUser(event);
 
-	if (event.url.pathname.startsWith('/streaks') && !verified) {
+	if (
+		(isPath(event, '/streaks') ||
+			isPath(event, '/completed') ||
+			isPath(event, '/achievements') ||
+			isPath(event, '/completed') ||
+			isPath(event, '/rewards') ||
+			isPath(event, '/settings')) &&
+		!verified
+	) {
 		throw redirect(303, handleRedirect(event));
 	}
 	const response = await resolve(event);
