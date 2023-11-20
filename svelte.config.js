@@ -1,4 +1,7 @@
 import adapter from '@sveltejs/adapter-vercel';
+// import { vitePreprocess } from '@sveltejs/kit/vite';
+// import { escapeSvelte, mdsvex } from 'mdsvex';
+// import { preprocess } from 'svelte/compiler';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,6 +17,7 @@ const config = {
 		// serviceWorker: {
 		// 	register: false
 		// }
+		// preprocess: [vitePreprocess(), mdsvex()]
 	}
 };
 

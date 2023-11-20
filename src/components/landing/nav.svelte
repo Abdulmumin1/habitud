@@ -4,7 +4,7 @@
 			Habitud <span class="bg-orange-300 rounded-lg p-1 rotate-12 text-[9px] h-fit">beta</span>
 		</li>
 		<ul class="flex items-center justify-center gap-2">
-			<li>Features</li>
+			<li><a href="/blog">Blog</a></li>
 			<li>About</li>
 			<li><a href="/auth">Sign Up</a></li>
 		</ul>

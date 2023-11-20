@@ -164,6 +164,7 @@
 					class="w-full bg-white flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
 					on:click={updateCard}
 					bind:this={refElement}
+					type="submit"
 				>
 					<Icon icon="material-symbols:done-all-rounded" />
 					Mark today
