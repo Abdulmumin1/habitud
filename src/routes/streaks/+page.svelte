@@ -79,7 +79,7 @@
 				{/each}
 			</div>
 		</div>
-		<div class="w-full mx-auto flex items-center flex-wrap justify-center">
+		<div class="w-full mx-auto flex items-center flex-wrap justify-center pb-20">
 			<div class=" flex flex-wrap gap-2 px-3 md:px-0">
 				{#each streaks as streak (streak.id)}
 					{#if !(getDaysDiff(streak.createdAt) > streak.duration || streak.streakArray[streak.streakArray.length - 1] == 1)}

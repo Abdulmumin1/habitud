@@ -2,7 +2,7 @@
 	"name": "Habitud",
 	"short_name": "Habitud",
 	"description": "Track your habits, master your life",
-	"theme_color": "#FED7AA",
+	"theme_color": "#fff",
 	"background_color": "#fff",
 	"display": "standalone",
 	"orientation": "any",
