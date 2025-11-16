@@ -10,9 +10,9 @@
 	import { getDaysDiff } from '$lib/index.js';
 
 	projects.set([]);
-	export let data;
+	let { data } = $props();
 
-	let streaks = [...data.streaks];
+	let streaks = $derived([...(data?.streaks ?? [])]);
 </script>
 
 <Wrapper>
@@ -27,7 +27,7 @@
 			</div>
 			<a
 				href="streaks/new"
-				class="bg-orange-300 flex items-center justify-center gap-2 p-2 rounded-lg w-fit px-6 active:scale-95 transition-transform duration-300"
+				class="bg-stone-300 flex items-center justify-center gap-2 p-2 rounded-lg w-fit px-6 active:scale-95 transition-transform duration-300"
 				>Track new habit
 				<Icon icon="material-symbols:add-task-rounded" />
 			</a>

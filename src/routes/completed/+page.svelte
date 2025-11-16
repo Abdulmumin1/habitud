@@ -3,7 +3,7 @@
 	import { getDaysDiff } from '$lib/index.js';
 	import StreakCompleted from '../../components/completed/streakCompleted.svelte';
 	import { backgroundColors } from '$lib/colors/index.js';
-	export let data;
+	let { data } = $props();
 	const streaks = [...data.streaks];
 
 	// console.log(backgroundColors.map((color) => color.replace('bg-', 'text-')));

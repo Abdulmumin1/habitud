@@ -1,9 +1,11 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import { onMount } from 'svelte';
 	import Wrapper from '$components/streak/wrapper.svelte';
 	import DurationVisualizer from '$components/streak/new/durationSlider.svelte';
 
-	let customDuration = false;
+	let customDuration = $state(false);
 
 	import { scale } from 'svelte/transition';
 	import { enhance } from '$app/forms';
@@ -13,7 +15,7 @@
 
 	import { toast } from '@zerodevx/svelte-toast';
 
-	let submitted = false;
+	let submitted = $state(false);
 
 	const submitStatus = () => {
 		submitted = true;
@@ -23,16 +25,18 @@
 		};
 	};
 
-	export let form;
-	$: if (form?.errors) {
-		let interval = 100;
-		form.errors.forEach((err) => {
-			setTimeout(() => {
-				toast.push(err.message);
-				interval += 300;
-			}, interval);
-		});
-	}
+	let { form } = $props();
+	run(() => {
+		if (form?.errors) {
+			let interval = 100;
+			form.errors.forEach((err) => {
+				setTimeout(() => {
+					toast.push(err.message);
+					interval += 300;
+				}, interval);
+			});
+		}
+	});
 </script>
 
 <Wrapper
@@ -46,7 +50,7 @@
 				Title
 				<input
 					type="text"
-					class="w-full h-full bg-orange-100 p-2 rounded-lg"
+					class="w-full h-full bg-stone-100 p-2 rounded-lg"
 					name="title"
 					id=""
 					placeholder="Meditate for thirty minutes"
@@ -59,7 +63,7 @@
 					<input
 						type="number"
 						name="duration"
-						class="p-2 rounded-lg bg-orange-100"
+						class="p-2 rounded-lg bg-stone-100"
 						id=""
 						min="7"
 						max="62"
@@ -85,7 +89,7 @@
 
 			<button
 				type="submit"
-				class="flex items-center justify-center gap-2 p-2 bg-orange-200 rounded-lg"
+				class="flex items-center justify-center gap-2 p-2 bg-stone-200 rounded-lg"
 			>
 				{#if submitted}
 					<span>

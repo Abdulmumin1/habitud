@@ -17,5 +17,5 @@ async function getUserID(cookies) {
 }
 /** @type {import('./$types').PageLoad} */
 export async function load({ cookies }) {
-	return { currentUserId: getUserID(cookies) };
+	return { currentUserId: await getUserID(cookies) };
 }

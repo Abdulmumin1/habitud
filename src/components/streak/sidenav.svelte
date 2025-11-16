@@ -3,10 +3,10 @@
 	import { onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
 
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 </script>
 
-<div class="w-[50px] fixed h-full bg-orange-200 md:w-[250px]">
+<div class="w-[50px] fixed h-full bg-stone-200 md:w-[250px]">
 	<ul
 		class="flex flex-col gap-6 text-lg p-0 items-center justify-center md:items-start md:p-6 overflow-hidden"
 	>
@@ -15,7 +15,7 @@
 				<Icon icon="material-symbols:track-changes" />
 				<span class="hidden md:inline"
 					>Habitud
-					<span class="bg-orange-300 rounded-lg p-1 rotate-12 text-[9px] h-fit">beta</span>
+					<span class="bg-stone-300 rounded-lg p-1 rotate-12 text-[9px] h-fit">beta</span>
 				</span>
 			</h2>
 		</li>
@@ -23,7 +23,7 @@
 			<a
 				href="/streaks"
 				class="flex items-center gap-2"
-				class:text-orange-500={$page.url.pathname == '/streaks'}
+				class:text-stone-500={page.url.pathname == '/streaks'}
 			>
 				<span>
 					<Icon icon="icon-park-outline:dashboard" />
@@ -35,7 +35,7 @@
 			<a
 				href="/achievements"
 				class="flex items-center gap-2"
-				class:text-orange-500={$page.url.pathname == '/achievements'}
+				class:text-stone-500={page.url.pathname == '/achievements'}
 			>
 				<span>
 					<Icon icon="solar:cup-star-bold" />
@@ -46,7 +46,7 @@
 			<a
 				href="rewards"
 				class="flex items-center gap-2"
-				class:text-orange-500={$page.url.pathname == '/rewards'}
+				class:text-stone-500={page.url.pathname == '/rewards'}
 			>
 				<span>
 					<Icon icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media" />
@@ -58,7 +58,7 @@
 			<a
 				href="/completed"
 				class="flex items-center gap-2"
-				class:text-orange-500={$page.url.pathname == '/completed'}
+				class:text-stone-500={page.url.pathname == '/completed'}
 			>
 				<span>
 					<Icon icon="solar:battery-full-bold" />
@@ -70,7 +70,7 @@
 			<a
 				href="/settings"
 				class="flex items-center gap-2"
-				class:text-orange-500={$page.url.pathname == '/settings'}
+				class:text-stone-500={page.url.pathname == '/settings'}
 			>
 				<span>
 					<Icon icon="material-symbols:settings" />

@@ -1,12 +1,12 @@
 <script>
 	const colors = [
-		'bg-slate-300',
+		'bg-stone-300',
 		'bg-gray-300',
 		'bg-zinc-300',
 		'bg-neutral-300',
 		'bg-stone-300',
 		'bg-red-300',
-		'bg-orange-300',
+		'bg-stone-300',
 		'bg-amber-300',
 		'bg-yellow-300',
 		'bg-lime-300',
@@ -24,7 +24,7 @@
 		'bg-rose-300'
 	];
 
-	let colorSelected = 'orange';
+	let colorSelected = $state('stone');
 
 	function setColor(col) {
 		colorSelected = col.replace(/^bg-|-300$/g, '');
@@ -48,7 +48,7 @@
 		{#each colors as color}
 			<button
 				type="button"
-				on:click={() => setColor(color)}
+				onclick={() => setColor(color)}
 				class={`w-full max-w-2 h-full rounded-lg transition-all active:scale-90 duration-300 ${color}`}
 				style="aspect-ratio: 1/1;"><span class="hidden">{color}</span></button
 			>

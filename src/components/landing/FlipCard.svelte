@@ -1,7 +1,17 @@
-<div class="flip-box bg-orange-300">
+<script>
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { children } = $props();
+</script>
+
+<div class="flip-box bg-stone-300">
 	<div class="flip-box-inner relative h-full w-full">
 		<div class="flip-box-front h-full w-full">
-			<slot />
+			{@render children?.()}
 		</div>
 		<div class="flip-box-back">
 			<h2>Back Side</h2>

@@ -13,7 +13,7 @@ async function loadStreask(currentUserId) {
 /** @type {import('./$types').PageLoad} */
 export async function load({ parent }) {
 	const { currentUserId } = await parent();
-	const streaks = loadStreask(currentUserId);
+	const streaks = await loadStreask(currentUserId);
 
 	return { streaks };
 }

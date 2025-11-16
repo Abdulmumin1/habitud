@@ -4,6 +4,13 @@
 	import { onMount } from 'svelte';
 
 	import { SvelteToast } from '@zerodevx/svelte-toast';
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { children } = $props();
 	// import { pwaInfo } from 'virtual:pwa-info';
 
 	// Optionally set default options here
@@ -37,7 +44,7 @@
 	{@html webManifestLink}
 </svelte:head> -->
 
-<slot />
+{@render children?.()}
 <SvelteToast {options} />
 
 <!-- {#await import('$components/ReloadPrompt.svelte') then { default: ReloadPrompt }}

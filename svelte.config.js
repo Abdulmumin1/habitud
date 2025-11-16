@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-cloudflare';
 // import { vitePreprocess } from '@sveltejs/kit/vite';
 // import { escapeSvelte, mdsvex } from 'mdsvex';
 // import { preprocess } from 'svelte/compiler';

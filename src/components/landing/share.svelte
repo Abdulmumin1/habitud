@@ -8,10 +8,10 @@
 	<div class="h-[400px] w-[400px]">
 		<img src={share_image} alt="" />
 	</div>
-	<div class="text-2xl font-semibold italic text-center text-slate-900">
+	<div class="text-2xl font-semibold italic text-center text-stone-900">
 		Beautifully
 		<span
-			class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:rounded-md before:bg-orange-300 relative inline-block"
+			class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:rounded-md before:bg-stone-300 relative inline-block"
 		>
 			<span class="relative text-white">share</span>
 		</span>

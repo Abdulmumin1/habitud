@@ -2,8 +2,8 @@
 	import Icon from '@iconify/svelte';
 	import RewardInfo from '$components/streak/new/rewardInfo.svelte';
 
-	let showInfo = false;
-	$: icon = showInfo ? 'material-symbols:close' : 'solar:info-square-linear';
+	let showInfo = $state(false);
+	let icon = $derived(showInfo ? 'material-symbols:close' : 'solar:info-square-linear');
 
 	function toogleShowInfo() {
 		showInfo = !showInfo;
@@ -16,10 +16,10 @@
 		<input
 			type="text"
 			name="reward"
-			class="bg-orange-100 p-2 rounded-lg w-full"
+			class="bg-stone-100 p-2 rounded-lg w-full"
 			placeholder="Example: I will treat myself to a nice meal"
 		/>
-		<button type="button" on:click={toogleShowInfo}>
+		<button type="button" onclick={toogleShowInfo}>
 			<Icon {icon} />
 		</button>
 	</div>

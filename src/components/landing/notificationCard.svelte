@@ -1,7 +1,13 @@
 <script>
-	export let classlist;
-	export let color = 'orange';
-	export let title;
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} classlist
+	 * @property {string} [color]
+	 * @property {any} title
+	 */
+
+	/** @type {Props} */
+	let { classlist, color = 'orange', title } = $props();
 </script>
 
 <div class={`flex flex-col bg-${color}-300 rounded-md p-4 ${classlist}`}>

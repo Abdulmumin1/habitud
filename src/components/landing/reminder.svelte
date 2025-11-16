@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class=" overflow-hidden p-4 md:p-0 bg-orange-50 flex flex-col md:flex-row min-h-screen items-center justify-center gap-2 group"
+	class=" overflow-hidden p-4 md:p-0 bg-stone-50 flex flex-col md:flex-row min-h-screen items-center justify-center gap-2 group"
 >
 	<div class="h-[400px] w-full max-w-[400px] flex flex-col gap-2 relative">
 		<NotificationCard
@@ -27,7 +27,7 @@
 			title="Write a Journal"
 		/>
 	</div>
-	<div class="  text-slate-900">
+	<div class="  text-stone-900">
 		<h4 class="text-2xl font-semibold">Reminders to help you stay on track.</h4>
 		<p>Stay on Course with Helpful Reminders</p>
 	</div>

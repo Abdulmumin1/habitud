@@ -1,9 +1,4 @@
 <script>
-	export let color = 'orange';
-
-	export let title;
-	export let duration = 30;
-
 	function generateRandomArray(length) {
 		const array = [];
 		for (let i = 0; i < length; i++) {
@@ -22,7 +17,16 @@
 		}
 	}
 
-	export let classlist;
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [color]
+	 * @property {any} title
+	 * @property {number} [duration]
+	 * @property {any} classlist
+	 */
+
+	/** @type {Props} */
+	let { color = 'orange', title, duration = 30, classlist } = $props();
 </script>
 
 <div class={`min-w-[300px] h-fit p-3 rounded-lg flex flex-col gap-2 bg-${color}-100 ${classlist} `}>

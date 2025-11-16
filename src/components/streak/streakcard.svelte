@@ -1,6 +1,8 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import { projects } from '$lib/stores/task.js';
-	import { afterUpdate, onDestroy, onMount, setContext } from 'svelte';
+	import { onDestroy, onMount, setContext } from 'svelte';
 	import Cardmenu from './cardmenu.svelte';
 	import IndependentCard from './independentCard.svelte';
 	import FlipCard from '../landing/FlipCard.svelte';
@@ -10,13 +12,15 @@
 	import Icon from '@iconify/svelte';
 	import { fly } from 'svelte/transition';
 
-	export let details = { title: 'New Task', duration: 30, color: 'orange' };
+	let { details = $bindable({ title: 'New Task', duration: 30, color: 'orange' }) } = $props();
 
-	$: details = details;
+	run(() => {
+		details = details;
+	});
 	let title = details.title;
 	let duration = details.duration;
 	let color = details.color;
-	let refElement;
+	let refElement = $state();
 	let thisData;
 
 	// function generateRandomArray(length) {
@@ -27,7 +31,7 @@
 	// 	return array;
 	// }
 
-	$: card_number = details.streakArray;
+	let card_number = $derived(details.streakArray);
 
 	onDestroy(() => {
 		projects.set([]);
@@ -83,9 +87,10 @@
 	}
 	// console.log(card_number);
 
-	$: completed =
+	let completed = $derived(
 		daysDiff + 1 > duration ||
-		(daysDiff + 1 == duration && card_number[card_number.length - 1] == 1);
+			(daysDiff + 1 == duration && card_number[card_number.length - 1] == 1)
+	);
 
 	onMount(() => {
 		if (!completed) {
@@ -162,7 +167,7 @@
 
 				<button
 					class="w-full bg-white flex items-center gap-4 p-4 rounded-md scale-bit transition-all duration-300"
-					on:click={updateCard}
+					onclick={updateCard}
 					bind:this={refElement}
 					type="submit"
 				>

@@ -14,7 +14,7 @@
 		event.target.classList.toggle(`bg-${color}-300`);
 	}
 
-	export let details;
+	let { details } = $props();
 	let color = details?.color ? details.color : 'orange';
 	let bgColor = `bg-${color}-300`;
 

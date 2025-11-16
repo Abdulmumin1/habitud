@@ -8,7 +8,7 @@
 	<div class="flex flex-col">
 		<p class="text-4xl max-w-2xl group-[game]:">Track Your Progress and Stay Motivated</p>
 		<p>See your progress over time and stay motivated</p>
-		<a href="/streaks" class="py-2 bg-orange-200 rounded-lg px-4 w-fit">Get Started</a>
+		<a href="/streaks" class="py-2 bg-stone-200 rounded-lg px-4 w-fit">Get Started</a>
 	</div>
 	<div class="h-[400px] w-full max-w-[400px] relative">
 		<Streakcard

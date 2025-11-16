@@ -1,9 +1,15 @@
 <script>
 	import Icon from '@iconify/svelte';
 
-	export let progress = 2; // Set the initial progress value
-	export let maxProgress = 10; // Set the maximum progress value
-	export let color;
+	/**
+	 * @typedef {Object} Props
+	 * @property {number} [progress] - Set the initial progress value
+	 * @property {number} [maxProgress] - Set the maximum progress value
+	 * @property {any} color
+	 */
+
+	/** @type {Props} */
+	let { progress = 2, maxProgress = 10, color } = $props();
 </script>
 
 <div class="w-full bg-{color}-200 p-1 rounded-[12px]" style="border-radius: 12px;">

@@ -2,7 +2,7 @@
 	import Wrapper from '$components/streak/wrapper.svelte';
 	import RewardCard from '$components/rewards/rewardcard.svelte';
 
-	export let data;
+	let { data } = $props();
 	let streaks = data.streaks;
 
 	console;

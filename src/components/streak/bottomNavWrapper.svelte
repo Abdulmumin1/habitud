@@ -1,3 +1,13 @@
+<script>
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { children } = $props();
+</script>
+
 <!-- <script>
 	import { onMount, onDestroy } from 'svelte';
 
@@ -39,15 +49,11 @@
 </script> -->
 
 <div class="fixed bottom-0 w-full bottom-nav">
-	<slot />
+	{@render children?.()}
 </div>
 
 <style>
 	.bottom-nav {
 		transition: opacity 0.3s;
-	}
-
-	.visible {
-		opacity: 1;
 	}
 </style>

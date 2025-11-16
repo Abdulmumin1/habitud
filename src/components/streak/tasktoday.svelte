@@ -1,13 +1,18 @@
 <script>
 	import { fade } from 'svelte/transition';
 
-	export let details;
 	let title = details.title;
 	let color = details.color;
 	let ref = details?.refElement;
-	// console.log(ref);
 
-	export let done = false;
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} details
+	 * @property {boolean} [done] - console.log(ref);
+	 */
+
+	/** @type {Props} */
+	let { details, done = $bindable(false) } = $props();
 </script>
 
 <div>
@@ -17,7 +22,7 @@
 		transition:fade
 		class={`w-full flex text-left justify-between p-4 rounded-lg bg-${color}-100 scale-bit transition-all duration-300 `}
 		class:line-through={done}
-		on:click={() => {
+		onclick={() => {
 			done = true;
 			ref.click();
 		}}

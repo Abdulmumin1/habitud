@@ -14,4 +14,4 @@
 	};
 </script>
 
-<button on:click={logout}>Logout</button>
+<button onclick={logout}>Logout</button>

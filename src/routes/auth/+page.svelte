@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex w-full h-screen flex-col md:flex-row items-center justify-center">
-	<div class="h-full p-12 px-12 bg-orange-300 gap-6 hidden md:flex flex-col w-fit">
+	<div class="h-full p-12 px-12 bg-stone-300 gap-6 hidden md:flex flex-col w-fit">
 		<p class="text-6xl">Habitud</p>
 		<div class="relative">
 			<StreakCard title={'Run a mile.'} duration={30} color={'orange'} />

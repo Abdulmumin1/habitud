@@ -74,6 +74,6 @@ export const actions = {
 			console.log(err);
 			return fail(500, { message: 'unable to complete action' });
 		}
-		throw redirect(303, '/streaks');
+		redirect(303, '/streaks');
 	}
 };

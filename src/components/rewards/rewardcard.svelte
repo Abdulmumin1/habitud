@@ -2,7 +2,7 @@
 	import Icon from '@iconify/svelte';
 	import RewardProgress from './rewardProgress.svelte';
 
-	export let details;
+	let { details } = $props();
 	let title = details?.title;
 	let description = details?.reward;
 	let color = details?.color;

@@ -1,11 +1,15 @@
 <script>
 	import Icon from '@iconify/svelte';
 
-	export let color = 'orange';
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [color]
+	 * @property {any} title
+	 * @property {any} streakArray
+	 */
 
-	export let title;
-	export let duration;
-	export let streakArray;
+	/** @type {Props} */
+	let { color = 'orange', title, streakArray } = $props();
 
 	let card_number = streakArray;
 	let bgColor = `bg-${color}-300`;

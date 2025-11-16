@@ -34,7 +34,7 @@ export const handle = async ({ event, resolve }) => {
 			isPath(event, '/settings')) &&
 		!verified
 	) {
-		throw redirect(303, handleRedirect(event));
+		redirect(303, handleRedirect(event));
 	}
 	const response = await resolve(event);
 	return response;
