@@ -38,6 +38,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@prisma/adapter-neon": "^6.19.0",
+		"@prisma/adapter-pg": "^6.19.0",
 		"@prisma/extension-accelerate": "^2.0.2",
 		"@tailwindcss/vite": "^4.1.17",
 		"@teamhanko/hanko-elements": "^0.8.2",

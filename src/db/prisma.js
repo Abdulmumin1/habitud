@@ -3,6 +3,8 @@ import { env } from '$env/dynamic/private';
 import { withAccelerate } from "@prisma/extension-accelerate";
 
 
-const prisma = new PrismaClient({ datasourceUrl: env.DATABASE_URL }).$extends(withAccelerate());
+const adapter = new PrismaNeon({ connectionString: env.DATABASE_URL })
+
+const prisma = new PrismaClient({ adapter }).$extends(withAccelerate());
 
 export { prisma };
