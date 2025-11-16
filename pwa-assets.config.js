@@ -2,5 +2,5 @@ import { defineConfig, minimalPreset as preset } from '@vite-pwa/assets-generato
 
 export default defineConfig({
 	preset,
-	images: ['public/habitud512.png']
+	images: ['public/android-chrome-512x512.png']
 });
