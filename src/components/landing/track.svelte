@@ -5,10 +5,14 @@
 <div
 	class="group p-4 py-12 md:p-6 flex min-h-screen flex-col md:flex-row items-center justify-center gap-12 md:gap-2"
 >
-	<div class="flex flex-col">
+	<div class="flex flex-col gap-4">
 		<p class="text-4xl max-w-2xl group-[game]:">Track Your Progress and Stay Motivated</p>
 		<p>See your progress over time and stay motivated</p>
-		<a href="/streaks" class="py-2 bg-stone-200 rounded-lg px-4 w-fit">Get Started</a>
+		<a
+			href="/streaks"
+			class="py-2 bg-gradient-to-br from-emerald-100 to-yellow-100 rounded-lg px-4 w-fit"
+			>Get Started</a
+		>
 	</div>
 	<div class="h-[400px] w-full max-w-[400px] relative">
 		<Streakcard
@@ -27,7 +31,7 @@
 		<Streakcard
 			title={'Meditate for 10 minutes'}
 			duration={30}
-			color={'orange'}
+			color={'yellow'}
 			classlist="hidden md:flex top-32 left-[-64px] absolute group-hover:left-[-120px] transition-all duration-300"
 		/>
 	</div>

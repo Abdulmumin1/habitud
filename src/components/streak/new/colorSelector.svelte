@@ -44,12 +44,12 @@
 		Select Color
 	</p>
 	<input type="text" name="color" id="" class="hidden" bind:value={colorSelected} />
-	<div class="grid grid-cols-7 gap-2 bg-white p-1 rounded-xl">
+	<div class="grid grid-cols-9 gap-2 bg-white p-1 rounded-xl">
 		{#each colors as color}
 			<button
 				type="button"
 				onclick={() => setColor(color)}
-				class={`w-full max-w-2 h-full rounded-lg transition-all active:scale-90 duration-300 ${color}`}
+				class={`w-full size-3  h-full rounded-lg transition-all active:scale-90 duration-300 ${color}`}
 				style="aspect-ratio: 1/1;"><span class="hidden">{color}</span></button
 			>
 		{/each}

@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class=" overflow-hidden p-4 md:p-0 bg-stone-50 flex flex-col md:flex-row min-h-screen items-center justify-center gap-2 group"
+	class=" overflow-hidden p-4 md:p-0 bg-gradient-to-br from-emerald-100 to-yellow-100 flex flex-col md:flex-row min-h-screen items-center justify-center gap-2 group"
 >
 	<div class="h-[400px] w-full max-w-[400px] flex flex-col gap-2 relative">
 		<NotificationCard

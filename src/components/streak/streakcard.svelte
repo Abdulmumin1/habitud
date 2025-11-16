@@ -115,7 +115,7 @@
 
 <!-- <FlipCard> -->
 <div
-	class={`min-w-[100px]  md:max-w-[300px] h-full p-3 rounded-lg flex flex-col gap-2 bg-${color}-100`}
+	class={` w-full md:w-auto min-w-[300px]  p-3 rounded-lg flex flex-col gap-2 bg-${color}-100`}
 >
 	<div
 		class={`flex  justify-between  bg-${color}-50 rounded-lg  p-2 transition-transform duration-300`}
@@ -190,4 +190,10 @@
 			skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
 			scaleY(var(--tw-scale-y));
 	}
+
+	 .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
 </style>

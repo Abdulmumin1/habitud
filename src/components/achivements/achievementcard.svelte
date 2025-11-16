@@ -12,11 +12,11 @@
 </script>
 
 <div
-	class=" max-w-[300px] w-full gap-6 h-[200px] p-2 bg-{color}-100 rounded-lg flex items-center justify-center flex-col {unlocked
+	class="  w-full gap-2  py-3 p-2 bg-gradient-to-br from-emerald-100 to-yellow-100 rounded-lg flex  justify-center flex-col {unlocked
 		? ''
 		: 'opacity-50 grayscale'}"
 >
-	<div class="flex items-center">
+	<div class="flex items-center ">
 		<span class="mr-2">
 			<Icon class="text-3xl" {icon} />
 		</span>

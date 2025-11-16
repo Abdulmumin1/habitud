@@ -1,4 +1,16 @@
 <script>
+
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [color]
+	 * @property {any} title
+	 * @property {number} [duration]
+	 * @property {any} classlist
+	 */
+
+	/** @type {Props} */
+	let { color = 'orange', title, duration = 30, classlist } = $props();
+
 	function generateRandomArray(length) {
 		const array = [];
 		for (let i = 0; i < length; i++) {
@@ -17,16 +29,6 @@
 		}
 	}
 
-	/**
-	 * @typedef {Object} Props
-	 * @property {string} [color]
-	 * @property {any} title
-	 * @property {number} [duration]
-	 * @property {any} classlist
-	 */
-
-	/** @type {Props} */
-	let { color = 'orange', title, duration = 30, classlist } = $props();
 </script>
 
 <div class={`min-w-[300px] h-fit p-3 rounded-lg flex flex-col gap-2 bg-${color}-100 ${classlist} `}>
@@ -44,7 +46,7 @@
 				<button
 					use:game
 					class:bg-white={!g}
-					class="w-full max-w-4 h-full rounded-md transition-all active:scale-90 duration-300"
+					class="w-full  h-full rounded-md transition-all active:scale-90 duration-300"
 					style="aspect-ratio: 1/1;"><span class="opacity-0">{g}</span></button
 				>
 			{/each}

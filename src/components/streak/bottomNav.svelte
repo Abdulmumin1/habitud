@@ -6,24 +6,34 @@
 </script>
 
 <BottomNavWrapper>
-	<div class="w-full">
+	<div class="w-full p-3">
 		<ul
-			class=" bg-stone-100 rounded-lg flex gap-6 text-lg p-4 items-center justify-between md:items-start overflow-hidden"
+			class=" bg-gradient-to-br from-emerald-100 to-yellow-100 rounded-full  flex gap-6 text-lg p-4 items-center justify-between md:items-start overflow-hidden"
 		>
-			<li>
+		<li class="bg-white rounded-full p-1">
+				<a href="/streaks" class="flex flex-col items-center justify-center">
+					<span class="text-2xl" class:text-stone-500={page.url.pathname == '/streaks'}>
+						<Icon icon="lets-icons:home-duotone" />
+					</span>
+					<!-- <span class="text-sm" class:text-stone-500={page.url.pathname == '/streaks'}
+						>Dashboard</span
+					> -->
+				</a>
+			</li>
+			<li class="bg-white rounded-full p-1">
 				<a href="/achievements" class="flex flex-col items-center justify-center">
 					<span class:text-stone-500={page.url.pathname == '/achievements'}>
-						<Icon icon="solar:cup-star-bold" />
+						<Icon class="text-xl" icon="icon-park-twotone:trophy" />
 						<!-- </span><span class="text-sm" class:text-stone-500={page.url.pathname == '/achievements'}
 						>Archievenments</span
 					> -->
 					</span></a
 				>
 			</li>
-			<li>
+			<li class="bg-white rounded-full p-1">
 				<a href="/completed" class="flex flex-col items-center justify-center">
 					<span class:text-stone-500={page.url.pathname == '/completed'}>
-						<Icon icon="solar:battery-full-bold" />
+						<Icon class='text-3xl' icon="lets-icons:done-duotone-line" />
 					</span>
 					<!-- <span class="text-sm" class:text-stone-500={page.url.pathname == '/completed'}
 						>Completed</span
@@ -31,21 +41,13 @@
 				</a>
 			</li>
 
-			<li>
-				<a href="/streaks" class="flex flex-col items-center justify-center">
-					<span class="text-2xl" class:text-stone-500={page.url.pathname == '/streaks'}>
-						<Icon icon="icon-park-outline:dashboard" />
-					</span>
-					<!-- <span class="text-sm" class:text-stone-500={page.url.pathname == '/streaks'}
-						>Dashboard</span
-					> -->
-				</a>
-			</li>
-			<li>
+			
+			<li class="bg-white rounded-full p-1">
 				<a href="/rewards" class="flex flex-col items-center justify-center">
 					<span class:text-stone-500={page.url.pathname == '/rewards'}>
 						<Icon
-							icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media"
+						class='text-2xl'
+							icon="fluent:reward-20-filled"
 						/>
 					</span>
 					<!-- <span class="text-sm" class:text-stone-500={page.url.pathname == '/rewards'}
@@ -54,16 +56,7 @@
 				</a>
 			</li>
 
-			<li>
-				<a href="/settings" class="flex flex-col items-center justify-center">
-					<span class:text-stone-500={page.url.pathname == '/settings'}>
-						<Icon icon="material-symbols:settings" />
-					</span>
-					<!-- <span class="text-sm" class:text-stone-500={page.url.pathname == '/settings'}
-						>Settings</span
-					> -->
-				</a>
-			</li>
+			
 		</ul>
 	</div>
 </BottomNavWrapper>

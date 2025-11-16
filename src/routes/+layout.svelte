@@ -1,7 +1,5 @@
 <script>
 	import '../app.css';
-	import '../tailwind.css';
-	import { onMount } from 'svelte';
 
 	import { SvelteToast } from '@zerodevx/svelte-toast';
 	/**

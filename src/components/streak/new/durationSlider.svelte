@@ -31,16 +31,16 @@
 			{#each milestones as milestone (milestone)}
 				<button
 					type="button"
-					class="text-[10px] absolute translate-y-1/3 z-10 w-12 h-12 bottom-0 border-2 border-orange-300 rounded-full cursor-pointer transition-colors duration-300"
+					class="text-[10px] absolute  from-emerald-100 to-yellow-100 translate-y-1/3 z-10 w-12 h-12 bottom-0 border-2 border-stone-100 rounded-full cursor-pointer transition-colors duration-300"
 					style="left: {(milestone / 30) * 100}%;"
-					class:bg-stone-300={progress >= milestone}
+					class:bg-gradient-to-br={progress >= milestone}
 					class:bg-white={!(progress >= milestone)}
 					onclick={() => updateProgress(Number(milestone))}>{weeks[milestone]}</button
 				>
 			{/each}
 
 			<div
-				class="absolute move-a h-4 bg-stone-300 transition-all duration-300 rounded-lg"
+				class="absolute move-a h-4 bg-gradient-to-br from-emerald-100 to-yellow-100 transition-all duration-300 rounded-lg"
 				style="width: {(progress / 30) * 100}%;"
 			></div>
 		</div>

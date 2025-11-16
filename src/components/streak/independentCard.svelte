@@ -25,6 +25,6 @@
 <button
 	type="submit"
 	use:game
-	class="w-full max-w-4 h-full rounded-md transition-all active:scale-90 duration-300"
+	class="w-full  h-full rounded-md transition-all active:scale-90 duration-300"
 	style="aspect-ratio: 1/1;"><span class="opacity-0">{details.state}</span></button
 >

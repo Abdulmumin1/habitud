@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="p-4 bg-stone-100 md:p-0 overflow-hidden flex flex-col md:flex-row min-h-screen items-center justify-center gap-2"
+	class="p-4 bg-gradient-to-br from-emerald-100 to-yellow-100 md:p-0 overflow-hidden flex flex-col md:flex-row min-h-screen items-center justify-center gap-2"
 >
 	<div class="h-[400px] w-[400px]">
 		<img src={share_image} alt="" />

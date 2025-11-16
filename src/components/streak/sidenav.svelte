@@ -6,7 +6,7 @@
 	import { page } from '$app/state';
 </script>
 
-<div class="w-[50px] fixed h-full bg-stone-200 md:w-[250px]">
+<div class="w-[50px] fixed h-full bg-stone-50 md:w-[250px]">
 	<ul
 		class="flex flex-col gap-6 text-lg p-0 items-center justify-center md:items-start md:p-6 overflow-hidden"
 	>
@@ -15,7 +15,7 @@
 				<Icon icon="material-symbols:track-changes" />
 				<span class="hidden md:inline"
 					>Habitud
-					<span class="bg-stone-300 rounded-lg p-1 rotate-12 text-[9px] h-fit">beta</span>
+					<!-- <span class="bg-stone-300 rounded-lg p-1 rotate-12 text-[9px] h-fit">beta</span> -->
 				</span>
 			</h2>
 		</li>
@@ -26,7 +26,7 @@
 				class:text-stone-500={page.url.pathname == '/streaks'}
 			>
 				<span>
-					<Icon icon="icon-park-outline:dashboard" />
+					<Icon icon="lets-icons:home-duotone" />
 				</span>
 				<span class="hidden md:inline">Dashboard</span></a
 			>
@@ -38,7 +38,7 @@
 				class:text-stone-500={page.url.pathname == '/achievements'}
 			>
 				<span>
-					<Icon icon="solar:cup-star-bold" />
+					<Icon icon="icon-park-twotone:trophy" />
 				</span><span class="hidden md:inline">Archievenments</span></a
 			>
 		</li>
@@ -49,7 +49,7 @@
 				class:text-stone-500={page.url.pathname == '/rewards'}
 			>
 				<span>
-					<Icon icon="streamline:interface-favorite-award-ribbon-reward-like-social-rating-media" />
+					<Icon icon="fluent:reward-20-filled" />
 				</span>
 				<span class="hidden md:inline">Rewards</span></a
 			>
@@ -61,7 +61,7 @@
 				class:text-stone-500={page.url.pathname == '/completed'}
 			>
 				<span>
-					<Icon icon="solar:battery-full-bold" />
+					<Icon icon="lets-icons:done-duotone-line" />
 				</span>
 				<span class="hidden md:inline">Completed</span></a
 			>

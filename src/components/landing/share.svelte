@@ -11,7 +11,7 @@
 	<div class="text-2xl font-semibold italic text-center text-stone-900">
 		Beautifully
 		<span
-			class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:rounded-md before:bg-stone-300 relative inline-block"
+			class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:rounded-md before:bg-gradient-to-br before:from-emerald-200 before:to-yellow-200 relative inline-block"
 		>
 			<span class="relative text-white">share</span>
 		</span>
