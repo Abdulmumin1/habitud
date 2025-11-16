@@ -1,13 +1,7 @@
 import { PrismaClient } from '@prisma/client';
-import {env} from '$env/dynamic/private'
+import { env } from '$env/dynamic/private'
 
 
-global.prisma;
-
-
-const prisma = global.prisma || new PrismaClient({datasourceUrl:env.DATABASE_URL});
-if (process.env.NODE_ENV === 'development') {
-	global.prisma = prisma;
-}
+const prisma = new PrismaClient({datasourceUrl: env.DATABASE_URL });
 
 export { prisma };
